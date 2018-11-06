@@ -10,7 +10,10 @@ FROM: continuumio/miniconda3
 
 
 %post
-  conda install --yes snakemake bedtools samtools subread
+  /opt/conda/bin/conda config --add channels defaults
+  /opt/conda/bin/conda config --add channels bioconda
+  /opt/conda/bin/conda config --add channels conda-forge
+  /opt/conda/bin/conda install --yes snakemake bedtools samtools subread
 
 %environment
 
