@@ -1,0 +1,21 @@
+Bootstrap: docker
+FROM: continuumio/miniconda3
+
+%labels
+  Version v1.0
+
+%help
+  Singularity image for diffTF ( snakemake bedtools samtools subread via conda)
+
+
+
+%post
+  conda install --yes snakemake bedtools samtools subread
+
+%environment
+
+%test
+#   snakemake --version
+  # bedtools --version
+  # samtools --version
+  # featureCounts -v
