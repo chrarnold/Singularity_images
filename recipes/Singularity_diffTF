@@ -1,0 +1,69 @@
+Bootstrap: docker
+FROM: bioconductor/release_core2
+
+%labels
+  Version v1.0
+
+%help
+  Singularity image for diffTF (based on R 3.5.1 and Snakemake 5.3.0)
+
+
+
+%post
+  # R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  #         biocLite('limma')"
+  #
+  #
+  # R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  #         biocLite('DESeq2')"
+  #
+  # R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  #         biocLite('vsn')"
+  #
+  # R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  #                 biocLite('csaw')"
+  #
+  # R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  #                 biocLite('DiffBind')"
+  #
+  # R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  #                 biocLite('geneplotter')"
+  #
+  # R --slave -e "install.packages('checkmate')"
+  # R --slave -e "install.packages('futile.logger')"
+  # R --slave -e "install.packages('tidyverse')"
+  # R --slave -e "install.packages('reshape2')"
+  # R --slave -e "install.packages('RColorBrewer')"
+  # R --slave -e "install.packages('ggrepel')"
+  # R --slave -e "install.packages('lsr')"
+  # R --slave -e "install.packages('modeest')"
+  # R --slave -e "install.packages('boot')"
+  # R --slave -e "install.packages('grDevices')"
+  # R --slave -e "install.packages('pheatmap')"
+  # R --slave -e "install.packages('matrixStats')"
+  # R --slave -e "install.packages('locfdr')"
+  wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda.sh
+  bash $HOME/miniconda.sh -b -p $HOME/miniconda
+
+  echo 'export PATH="$HOME/miniconda/bin:$PATH"' >>$HOME/.bashrc
+  echo 'source $HOME/miniconda/bin/activate' >>$HOME/.bashrc
+
+  . $HOME/miniconda/bin/activate
+  # export PATH="$HOME/miniconda/bin:$PATH"
+
+  conda config --add channels defaults
+  conda config --add channels bioconda
+  conda config --add channels conda-forge
+
+  conda install --yes snakemake bedtools samtools subread
+
+%environment
+  export PATH="$HOME/miniconda/bin:$PATH"
+  . $HOME/miniconda/bin/activate
+
+%test
+#  R --version
+#   snakemake --version
+  # bedtools --version
+  # samtools --version
+  # featureCounts -v
