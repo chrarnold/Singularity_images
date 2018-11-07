@@ -10,6 +10,10 @@ FROM: bioconductor/release_core2
 
 
 %post
+
+  # Needed for csaw
+  apt-get install libbz2-dev liblzma-dev
+
   R --slave -e "source('https://bioconductor.org/biocLite.R'); \
           biocLite('limma')"
 
