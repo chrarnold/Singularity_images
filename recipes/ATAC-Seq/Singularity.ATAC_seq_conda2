@@ -22,4 +22,4 @@ FROM: continuumio/miniconda2
 %environment
 
 %test
-   macs2 --version
+   # macs2 --version
