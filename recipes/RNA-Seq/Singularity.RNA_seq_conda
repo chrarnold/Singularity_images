@@ -17,7 +17,7 @@ FROM: continuumio/miniconda3
   /opt/conda/bin/conda config --add channels conda-forge
 
   # Install the tools
-  /opt/conda/bin/conda install --yes bedtools samtools subread fastqc cutadapt multiqc star picard deeptools htseq trim-galore
+  /opt/conda/bin/conda install --yes bedtools samtools subread fastqc cutadapt multiqc star picard deeptools htseq trim-galore kallisto
 
 %environment
 
