@@ -21,7 +21,7 @@ FROM: continuumio/miniconda3
 
   wget --no-check-certificate -O gatk.tar.bz2 https://github.com/chrarnold/Singularity_images/raw/master/files/GenomeAnalysisTK-3.8-1-0-gf15c1c3ef.tar.bz2?raw=true
 
-  gatk3-register gatk.tar.bz2
+  gatk-register gatk.tar.bz2
 
 %environment
 
