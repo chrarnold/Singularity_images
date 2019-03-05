@@ -5,7 +5,7 @@ FROM: bioconductor/release_core2
   Version v1.0
 
 %help
-  Singularity image for the variant calling pipeline (R 3.5.1 + all packages)
+  Singularity image for the variant calling pipeline (R 3.5.1 + all packages + java)
 
 
 
@@ -14,7 +14,7 @@ FROM: bioconductor/release_core2
   R --slave -e "install.packages('tools')"
   R --slave -e "install.packages('tidyverse')"
   R --slave -e "install.packages('grid')"
-
+  apt install default-jre
 
 %environment
 
