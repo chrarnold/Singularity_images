@@ -14,7 +14,7 @@ FROM: bioconductor/release_core2
   R --slave -e "install.packages('tools')"
   R --slave -e "install.packages('tidyverse')"
   R --slave -e "install.packages('grid')"
-  apt install default-jre
+  apt install --yes default-jre
 
 %environment
 
