@@ -14,6 +14,7 @@ FROM: bioconductor/release_core2
   R --slave -e "install.packages('tools')"
   R --slave -e "install.packages('tidyverse')"
   R --slave -e "install.packages('grid')"
+  R --slave -e "install.packages('gplots')"
   apt install --yes default-jre
 
 %environment
