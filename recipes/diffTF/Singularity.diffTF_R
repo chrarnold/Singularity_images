@@ -41,7 +41,6 @@ FROM: bioconductor/release_core2
                   biocLite('apeglm')"
 
 
-
   R --slave -e "install.packages('checkmate')"
   R --slave -e "install.packages('futile.logger')"
   R --slave -e "install.packages('tidyverse')"
