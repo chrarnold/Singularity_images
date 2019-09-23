@@ -2,7 +2,7 @@ Bootstrap: docker
 FROM: bioconductor/release_core2
 
 %labels
-  Version v1.0
+  Version v1.1
 
 %help
   Singularity image for diffTF (R 3.5.1 + all packages)
@@ -33,6 +33,13 @@ FROM: bioconductor/release_core2
 
   R --slave -e "source('https://bioconductor.org/biocLite.R'); \
                   biocLite('geneplotter')"
+
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+                  biocLite('preprocessCore')"
+
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+                  biocLite('apeglm')"
+
 
   R --slave -e "install.packages('checkmate')"
   R --slave -e "install.packages('futile.logger')"
