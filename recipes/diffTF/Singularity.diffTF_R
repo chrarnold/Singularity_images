@@ -5,7 +5,7 @@ FROM: bioconductor/release_core2
   Version v1.1
 
 %help
-  Singularity image for diffTF (R 3.5.1 + all packages)
+  Singularity image for diffTF (R + all packages)
 
 
 
@@ -15,31 +15,9 @@ FROM: bioconductor/release_core2
   apt-get install -y libbz2-dev
   apt-get install -y liblzma-dev
 
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('limma')"
+  R --slave -e "install.packages('BiocManager')"
 
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('DESeq2')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('vsn')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                  biocLite('csaw')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                  biocLite('DiffBind')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                  biocLite('geneplotter')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                  biocLite('preprocessCore')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-                  biocLite('apeglm')"
-
+  R --slave -e "BiocManager::install(c('GenomicRanges', 'limma', 'DESeq2', 'vsn', 'csaw', 'DiffBind', 'geneplotter', 'preprocessCore', 'apeglm'))"
 
   R --slave -e "install.packages('checkmate')"
   R --slave -e "install.packages('futile.logger')"
