@@ -8,7 +8,6 @@ FROM: bioconductor/release_core2
   Singularity image for diffTF (R + all packages)
 
 
-
 %post
 
   # Needed for csaw
@@ -17,7 +16,7 @@ FROM: bioconductor/release_core2
 
   R --slave -e "install.packages('BiocManager')"
 
-  R --slave -e "BiocManager::install(c('GenomicRanges', 'limma', 'DESeq2', 'vsn', 'csaw', 'DiffBind', 'geneplotter', 'preprocessCore', 'apeglm'))"
+  R --slave -e "BiocManager::install(c('GenomicRanges', 'limma', 'DESeq2', 'vsn', 'csaw', 'DiffBind', 'geneplotter', 'preprocessCore', 'apeglm', 'ashr'))"
 
   R --slave -e "install.packages('checkmate')"
   R --slave -e "install.packages('futile.logger')"
