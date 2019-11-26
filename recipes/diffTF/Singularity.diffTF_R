@@ -2,7 +2,7 @@ Bootstrap: docker
 FROM: bioconductor/release_core2
 
 %labels
-  Version v1.1
+  Version v1.5
 
 %help
   Singularity image for diffTF (R + all packages)
