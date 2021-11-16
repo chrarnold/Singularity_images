@@ -2,7 +2,7 @@ Bootstrap: docker
 FROM: continuumio/miniconda3
 
 %labels
-  Version v1.0
+  Version v1.1
 
 %help
   Singularity image for the ATAC-Seq pipeline (Python 3)

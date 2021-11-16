@@ -1,28 +1,20 @@
 Bootstrap: docker
-FROM: bioconductor/release_core2
+FROM: bioconductor/bioconductor_docker
 
 %labels
-  Version v1.0
+  Version v1.1
 
 %help
-  Singularity image for the ATAC-Seq pipeline (R 3.5.1 + all packages)
-
+  Singularity image for the ATAC-Seq pipeline (R 4 + all packages)
 
 
 %post
 
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('DESeq2')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('GenomicRanges')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('Rsamtools')"
-
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-          biocLite('DiffBind')"
-
+  R --slave -e "BiocManager::install('DESeq2')"
+  R --slave -e "BiocManager::install('GenomicRanges')"
+  R --slave -e "BiocManager::install('Rsamtools')"
+  R --slave -e "BiocManager::install('DiffBind')"
+  R --slave -e "BiocManager::install('ChIPseeker')"
 
   R --slave -e "install.packages('checkmate')"
   R --slave -e "install.packages('futile.logger')"
